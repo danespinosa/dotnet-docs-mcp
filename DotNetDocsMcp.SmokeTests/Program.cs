@@ -26,11 +26,19 @@ if (args is ["--server-exe", var serverExecutable])
 }
 else
 {
+    var buildConfiguration = AppContext.BaseDirectory
+        .Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)
+        .Contains("Release", StringComparer.OrdinalIgnoreCase)
+        ? "Release"
+        : "Debug";
+
     command = "dotnet";
     arguments =
     [
         "run",
         "--no-build",
+        "--configuration",
+        buildConfiguration,
         "--project",
         serverProject
     ];
