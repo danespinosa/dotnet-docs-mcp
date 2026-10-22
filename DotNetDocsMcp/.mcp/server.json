@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "description": "Read-only access to current Microsoft Learn .NET documentation, NuGet metadata, and local dotnet information.",
+  "name": "io.github.danespinosa/dotnet-docs-mcp",
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "nuget",
+      "identifier": "DaneEspinosa.DotNetDocsMcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [],
+      "environmentVariables": []
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/danespinosa/dotnet-docs-mcp",
+    "source": "github"
+  }
+}

@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-smoke-test:
+    runs-on: windows-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore .\dotnet-docs-mcp.slnx
+
+      - name: Build
+        run: dotnet build .\dotnet-docs-mcp.slnx -c Release --no-restore -warnaserror
+
+      - name: Run MCP smoke tests
+        run: dotnet run --project .\DotNetDocsMcp.SmokeTests\DotNetDocsMcp.SmokeTests.csproj -c Release --no-build

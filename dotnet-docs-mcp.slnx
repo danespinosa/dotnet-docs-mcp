@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="DotNetDocsMcp.SmokeTests/DotNetDocsMcp.SmokeTests.csproj" />
+  <Project Path="DotNetDocsMcp/DotNetDocsMcp.csproj" />
+</Solution>
